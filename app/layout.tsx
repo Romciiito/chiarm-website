@@ -11,8 +11,14 @@ const inter = Inter({
   display: "swap",
 });
 
+const BASE_URL = "https://chiarm.app";
+
 export const metadata: Metadata = {
-  title: "CHIARM — Privacy-First Telegram CRM",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "CHIARM — Privacy-First Telegram CRM",
+    template: "%s | CHIARM",
+  },
   description:
     "Self-hosted desktop CRM for Telegram. AI summaries, smart replies, voice cloning, anti-spam — all running on your computer. Your data never leaves your machine.",
   keywords: [
@@ -22,6 +28,8 @@ export const metadata: Metadata = {
     "desktop CRM",
     "AI messaging",
     "Telegram automation",
+    "local AI",
+    "voice cloning",
   ],
   authors: [{ name: "CHIARM" }],
   openGraph: {
@@ -29,13 +37,19 @@ export const metadata: Metadata = {
     description:
       "Self-hosted desktop CRM for Telegram. Your data stays on your computer.",
     type: "website",
-    url: "https://chiarm.app",
+    url: BASE_URL,
+    siteName: "CHIARM",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "CHIARM — Privacy-First Telegram CRM" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "CHIARM — Privacy-First Telegram CRM",
     description:
       "Self-hosted desktop CRM for Telegram. Your data stays on your computer.",
+    images: ["/og.png"],
+  },
+  alternates: {
+    canonical: BASE_URL,
   },
 };
 

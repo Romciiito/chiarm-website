@@ -1,4 +1,16 @@
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
+
+export const metadata: Metadata = {
+  title: "Changelog — CHIARM",
+  description:
+    "Release notes for every CHIARM update — new features, improvements, bug fixes, and what's coming next.",
+  openGraph: {
+    title: "Changelog — CHIARM",
+    description: "Every CHIARM update, in one place.",
+    url: "https://chiarm.app/changelog",
+  },
+};
 
 type ChangeType = "new" | "improved" | "fixed" | "coming";
 

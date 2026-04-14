@@ -1,4 +1,17 @@
 import { Fragment } from "react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Pricing — CHIARM",
+  description:
+    "Simple, transparent pricing for CHIARM. One flat rate, no per-seat fees, no usage limits. Your data stays on your machine.",
+  openGraph: {
+    title: "Pricing — CHIARM",
+    description: "One flat rate. No per-seat fees. No usage limits.",
+    url: "https://chiarm.app/pricing",
+    images: [{ url: "/og-pricing.png", width: 1200, height: 630 }],
+  },
+};
 import { ButtonLink } from "@/components/button-link";
 import { Button } from "@/components/ui/button";
 import {
