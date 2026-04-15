@@ -29,7 +29,7 @@ const plans = [
     period: "month",
     desc: "For individual operators running Telegram outreach.",
     cta: "Get started",
-    href: "/download",
+    href: "mailto:sales@chiarm.app",
     highlight: false,
     features: [
       "1 Telegram account",
@@ -49,7 +49,7 @@ const plans = [
     period: "month",
     desc: "For small teams managing multiple Telegram accounts.",
     cta: "Get started",
-    href: "/download",
+    href: "mailto:sales@chiarm.app",
     highlight: true,
     badge: "Most popular",
     features: [

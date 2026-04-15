@@ -11,7 +11,6 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/pricing", label: "Pricing" },
-  { href: "/download", label: "Download" },
   { href: "/docs", label: "Docs" },
   { href: "/changelog", label: "Changelog" },
 ];
@@ -58,8 +57,8 @@ export function Header() {
           <ButtonLink href="mailto:support@chiarm.app" variant="ghost" size="sm">
             Contact
           </ButtonLink>
-          <ButtonLink href="/download" size="sm" className="rounded-full px-4">
-            Download free
+          <ButtonLink href="/pricing" size="sm" className="rounded-full px-4">
+            Get started
           </ButtonLink>
         </div>
 
@@ -106,12 +105,12 @@ export function Header() {
             </Link>
             <div className="pt-2">
               <ButtonLink
-                href="/download"
+                href="/pricing"
                 size="sm"
                 className="w-full rounded-full"
                 onClick={() => setMobileOpen(false)}
               >
-                Download free
+                Get started
               </ButtonLink>
             </div>
           </nav>

@@ -261,8 +261,8 @@ export default function HomePage() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-3">
-            <ButtonLink href="/download" size="lg" className="rounded-full px-8 text-base font-semibold shadow-md">
-              Download free
+            <ButtonLink href="/pricing" size="lg" className="rounded-full px-8 text-base font-semibold shadow-md">
+              Get started
               <ArrowRight className="ml-2 h-4 w-4" />
             </ButtonLink>
             <ButtonLink href="/pricing" variant="outline" size="lg" className="rounded-full px-8 text-base">
@@ -398,8 +398,8 @@ export default function HomePage() {
                   desc="Rate limits and consent checks keep your accounts safe."
                 />
               </div>
-              <ButtonLink href="/download" variant="outline" size="sm" className="mt-8 rounded-full">
-                Try for free
+              <ButtonLink href="/pricing" variant="outline" size="sm" className="mt-8 rounded-full">
+                See pricing
               </ButtonLink>
             </div>
             <MessagingMockup />
@@ -446,8 +446,8 @@ export default function HomePage() {
                   desc="All metrics stay on your machine. No data sent to us."
                 />
               </div>
-              <ButtonLink href="/download" variant="outline" size="sm" className="mt-8 rounded-full">
-                Try for free
+              <ButtonLink href="/pricing" variant="outline" size="sm" className="mt-8 rounded-full">
+                See pricing
               </ButtonLink>
             </div>
           </div>
@@ -588,10 +588,10 @@ export default function HomePage() {
             Get started with CHIARM today
           </h2>
           <p className="text-muted-foreground mb-8">
-            Download the desktop app and connect your first Telegram account in under 5 minutes.
+            Get your team running in under 5 minutes — AI smart replies, voice cloning, and full privacy included.
           </p>
-          <ButtonLink href="/download" size="lg" className="rounded-full px-8 text-base font-semibold shadow-md">
-            Download for macOS
+          <ButtonLink href="/pricing" size="lg" className="rounded-full px-8 text-base font-semibold shadow-md">
+            See pricing
             <ArrowRight className="ml-2 h-4 w-4" />
           </ButtonLink>
           <p className="mt-3 text-xs text-muted-foreground">
