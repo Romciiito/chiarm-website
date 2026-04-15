@@ -3,35 +3,32 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X, Shield } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ButtonLink } from "@/components/button-link";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { LanguageToggle } from "@/components/language-toggle";
+import { useLanguage } from "@/components/language-provider";
+import { Logo } from "@/components/logo";
 import { cn } from "@/lib/utils";
-
-const navLinks = [
-  { href: "/pricing", label: "Pricing" },
-  { href: "/download", label: "Download" },
-  { href: "/docs", label: "Docs" },
-  { href: "/changelog", label: "Changelog" },
-];
 
 export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { href: "/pricing",   label: t.nav.pricing },
+    { href: "/docs",      label: t.nav.docs },
+    { href: "/changelog", label: t.nav.changelog },
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
         {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center gap-2 font-semibold text-foreground hover:opacity-80 transition-opacity"
-        >
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary">
-            <Shield className="h-4 w-4 text-white" />
-          </div>
-          <span className="text-sm font-bold tracking-tight">CHIARM</span>
+        <Link href="/" className="hover:opacity-80 transition-opacity">
+          <Logo size="sm" />
         </Link>
 
         {/* Desktop nav */}
@@ -54,17 +51,19 @@ export function Header() {
 
         {/* Desktop actions */}
         <div className="hidden md:flex items-center gap-2">
+          <LanguageToggle />
           <ThemeToggle />
           <ButtonLink href="mailto:support@chiarm.app" variant="ghost" size="sm">
-            Contact
+            {t.nav.contact}
           </ButtonLink>
-          <ButtonLink href="/download" size="sm" className="rounded-full px-4">
-            Download free
+          <ButtonLink href="/pricing" size="sm" className="rounded-full px-4">
+            {t.nav.getStarted}
           </ButtonLink>
         </div>
 
-        {/* Mobile: theme toggle + hamburger */}
+        {/* Mobile: toggles + hamburger */}
         <div className="flex md:hidden items-center gap-1">
+          <LanguageToggle />
           <ThemeToggle />
           <Button
             variant="ghost"
@@ -102,16 +101,16 @@ export function Header() {
               className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted transition-colors"
               onClick={() => setMobileOpen(false)}
             >
-              Contact
+              {t.nav.contact}
             </Link>
             <div className="pt-2">
               <ButtonLink
-                href="/download"
+                href="/pricing"
                 size="sm"
                 className="w-full rounded-full"
                 onClick={() => setMobileOpen(false)}
               >
-                Download free
+                {t.nav.getStarted}
               </ButtonLink>
             </div>
           </nav>
