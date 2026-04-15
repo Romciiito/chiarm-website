@@ -18,7 +18,7 @@ const footerLinks = {
     { label: "DPA", href: "/dpa" },
   ],
   Support: [
-    { label: "Contact", href: "mailto:support@chiarm.app" },
+    { label: "Contact", href: "/contact" },
     { label: "Status", href: "https://status.chiarm.app" },
   ],
 };
