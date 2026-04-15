@@ -42,7 +42,7 @@ const en = {
       {
         name: "Support",
         links: [
-          { label: "Contact", href: "mailto:support@chiarm.app" },
+          { label: "Contact", href: "/contact" },
           { label: "Status",  href: "https://status.chiarm.app" },
         ],
       },
@@ -249,7 +249,7 @@ const cs = {
       { name: "Produkt",    links: [{ label: "Funkce", href: "/#features" }, { label: "Ceník", href: "/pricing" }, { label: "Novinky", href: "/changelog" }] },
       { name: "Zdroje",     links: [{ label: "Dokumentace", href: "/docs" }, { label: "Časté dotazy", href: "/#faq" }] },
       { name: "Právní",     links: [{ label: "Podmínky služby", href: "/terms" }, { label: "Zásady soukromí", href: "/privacy" }, { label: "DPA", href: "/dpa" }] },
-      { name: "Podpora",    links: [{ label: "Kontakt", href: "mailto:support@chiarm.app" }, { label: "Stav", href: "https://status.chiarm.app" }] },
+      { name: "Podpora",    links: [{ label: "Kontakt", href: "/contact" }, { label: "Stav", href: "https://status.chiarm.app" }] },
     ],
   },
   home: {
