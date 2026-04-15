@@ -24,50 +24,81 @@ try {
 const W = 1200;
 const H = 630;
 
-function makeSvg({ title, subtitle, badge }) {
+// Brand colors matching the actual CHIARM logo
+const BLUE   = "#6372FA";   // logo back bubble
+const PINK   = "#FF5CBF";   // logo front bubble
+const DARK   = "#0D0F1A";   // dark background (matches dark logo variant)
+const DARK2  = "#141726";   // lighter layer
+
+// Logo mark as inline SVG (100×100 viewBox, placed at desired position/size)
+function logoMarkAt(x, y, size = 72) {
+  const s = size / 100;
+  return `<g transform="translate(${x},${y}) scale(${s})">
+    <rect x="24" y="6" width="66" height="46" rx="13" fill="${BLUE}"/>
+    <path d="M21,30 H69 Q82,30 82,43 V71 Q82,84 69,84 H30 L8,100 L24,84 H21 Q8,84 8,71 V43 Q8,30 21,30 Z"
+          fill="${PINK}" stroke="white" stroke-width="5" paint-order="stroke fill"/>
+  </g>`;
+}
+
+function makeSvg({ title, subtitle }) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="50%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#0f172a"/>
+      <stop offset="0%"   stop-color="${DARK}"/>
+      <stop offset="50%"  stop-color="${DARK2}"/>
+      <stop offset="100%" stop-color="${DARK}"/>
     </linearGradient>
-    <radialGradient id="glow" cx="50%" cy="0%" r="60%">
-      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.20"/>
-      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    <radialGradient id="glow" cx="50%" cy="0%" r="65%">
+      <stop offset="0%"   stop-color="${BLUE}" stop-opacity="0.22"/>
+      <stop offset="60%"  stop-color="${PINK}" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="${BLUE}" stop-opacity="0"/>
     </radialGradient>
   </defs>
 
-  <!-- Background -->
+  <!-- Background + glow -->
   <rect width="${W}" height="${H}" fill="url(#bg)"/>
-  <!-- Glow -->
-  <ellipse cx="600" cy="0" rx="500" ry="250" fill="url(#glow)"/>
+  <ellipse cx="600" cy="0" rx="520" ry="270" fill="url(#glow)"/>
 
-  <!-- Logo box -->
-  <rect x="538" y="88" width="48" height="48" rx="12" fill="#3B82F6"/>
-  <text x="562" y="122" font-size="26" text-anchor="middle" fill="white">🛡</text>
+  <!-- Logo mark (centered horizontally, near top) -->
+  ${logoMarkAt(551, 68, 98)}
 
   <!-- Brand name -->
-  <text x="596" y="122" font-family="system-ui,-apple-system,sans-serif" font-size="26" font-weight="700" fill="#f8fafc" dominant-baseline="middle">CHIARM</text>
+  <text x="662" y="119" font-family="system-ui,-apple-system,sans-serif"
+        font-size="30" font-weight="700" fill="#f8fafc" dominant-baseline="middle"
+        letter-spacing="-0.5">CHIARM</text>
+  <text x="662" y="141" font-family="system-ui,-apple-system,sans-serif"
+        font-size="13" font-weight="500" fill="#6372FA" dominant-baseline="middle"
+        letter-spacing="3">APP</text>
 
-  <!-- Title -->
-  <text x="600" y="220" font-family="system-ui,-apple-system,sans-serif" font-size="60" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="-1">${title}</text>
+  <!-- Title (may be long — split on ·) -->
+  <text x="600" y="232" font-family="system-ui,-apple-system,sans-serif"
+        font-size="56" font-weight="800" fill="#f8fafc" text-anchor="middle"
+        letter-spacing="-1">${title}</text>
 
   <!-- Subtitle -->
-  <text x="600" y="310" font-family="system-ui,-apple-system,sans-serif" font-size="24" fill="#94a3b8" text-anchor="middle">${subtitle}</text>
+  <text x="600" y="312" font-family="system-ui,-apple-system,sans-serif"
+        font-size="22" fill="#94a3b8" text-anchor="middle">${subtitle}</text>
 
   <!-- Pills row -->
-  <rect x="268" y="370" width="160" height="40" rx="20" fill="none" stroke="#3B82F6" stroke-opacity="0.4"/>
-  <text x="348" y="396" font-family="system-ui,-apple-system,sans-serif" font-size="16" fill="#93c5fd" text-anchor="middle">🔒 Zero cloud</text>
+  <rect x="250" y="374" width="166" height="38" rx="19" fill="none" stroke="${BLUE}" stroke-opacity="0.35"/>
+  <text x="333" y="399" font-family="system-ui,-apple-system,sans-serif"
+        font-size="15" fill="#a5b4fc" text-anchor="middle">🔒 Zero cloud</text>
 
-  <rect x="452" y="370" width="148" height="40" rx="20" fill="none" stroke="#3B82F6" stroke-opacity="0.4"/>
-  <text x="526" y="396" font-family="system-ui,-apple-system,sans-serif" font-size="16" fill="#93c5fd" text-anchor="middle">🤖 Local AI</text>
+  <rect x="438" y="374" width="154" height="38" rx="19" fill="none" stroke="${BLUE}" stroke-opacity="0.35"/>
+  <text x="515" y="399" font-family="system-ui,-apple-system,sans-serif"
+        font-size="15" fill="#a5b4fc" text-anchor="middle">🤖 Local AI</text>
 
-  <rect x="624" y="370" width="148" height="40" rx="20" fill="none" stroke="#3B82F6" stroke-opacity="0.4"/>
-  <text x="698" y="396" font-family="system-ui,-apple-system,sans-serif" font-size="16" fill="#93c5fd" text-anchor="middle">📱 Telegram</text>
+  <rect x="614" y="374" width="154" height="38" rx="19" fill="none" stroke="${PINK}" stroke-opacity="0.35"/>
+  <text x="691" y="399" font-family="system-ui,-apple-system,sans-serif"
+        font-size="15" fill="#f9a8d4" text-anchor="middle">📱 Telegram</text>
+
+  <rect x="790" y="374" width="162" height="38" rx="19" fill="none" stroke="${PINK}" stroke-opacity="0.35"/>
+  <text x="871" y="399" font-family="system-ui,-apple-system,sans-serif"
+        font-size="15" fill="#f9a8d4" text-anchor="middle">🔊 Voice AI</text>
 
   <!-- Domain -->
-  <text x="600" y="565" font-family="system-ui,-apple-system,sans-serif" font-size="18" fill="#475569" text-anchor="middle" letter-spacing="0.5">chiarm.app</text>
+  <text x="600" y="568" font-family="system-ui,-apple-system,sans-serif"
+        font-size="17" fill="#475569" text-anchor="middle" letter-spacing="0.5">chiarm.app</text>
 </svg>`;
 }
 
@@ -76,25 +107,16 @@ const pages = [
     out: "public/og.png",
     title: "Your Telegram CRM, on your computer",
     subtitle: "Privacy-first · AI-powered · Your data never leaves your machine",
-    badge: null,
   },
   {
     out: "public/og-pricing.png",
     title: "Simple, transparent pricing",
     subtitle: "One flat rate · No per-seat fees · No usage limits",
-    badge: null,
-  },
-  {
-    out: "public/og-download.png",
-    title: "Download CHIARM",
-    subtitle: "Free to download · macOS available now",
-    badge: null,
   },
   {
     out: "public/og-docs.png",
     title: "Documentation",
     subtitle: "Install, connect Telegram, and go in under 5 minutes",
-    badge: null,
   },
 ];
 

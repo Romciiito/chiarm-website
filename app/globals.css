@@ -44,8 +44,8 @@
   --card-foreground: oklch(0.13 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.13 0 0);
-  /* CHIARM primary blue (#3B82F6) */
-  --primary: oklch(0.623 0.214 264.052);
+  /* CHIARM primary blue-indigo (#6372FA) – matches logo mark */
+  --primary: oklch(0.60 0.245 271);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.96 0 0);
   --secondary-foreground: oklch(0.13 0 0);
@@ -56,11 +56,13 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.90 0 0);
   --input: oklch(0.90 0 0);
-  --ring: oklch(0.623 0.214 264.052);
+  --ring: oklch(0.60 0.245 271);
   --radius: 0.75rem;
   /* brand shorthand */
-  --brand: oklch(0.623 0.214 264.052);
+  --brand: oklch(0.60 0.245 271);
   --brand-foreground: oklch(1 0 0);
+  /* pink accent from logo */
+  --brand-pink: #FF5CBF;
 }
 
 .dark {
@@ -70,7 +72,7 @@
   --card-foreground: oklch(0.97 0 0);
   --popover: oklch(0.17 0 0);
   --popover-foreground: oklch(0.97 0 0);
-  --primary: oklch(0.623 0.214 264.052);
+  --primary: oklch(0.68 0.22 271);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.22 0 0);
   --secondary-foreground: oklch(0.97 0 0);
@@ -81,9 +83,10 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.623 0.214 264.052);
-  --brand: oklch(0.623 0.214 264.052);
+  --ring: oklch(0.68 0.22 271);
+  --brand: oklch(0.68 0.22 271);
   --brand-foreground: oklch(1 0 0);
+  --brand-pink: #FF5CBF;
 }
 
 @layer base {
@@ -100,16 +103,16 @@
 
 /* Hero gradient — lavender-tinted for light, deep blue-dark for dark */
 .hero-gradient {
-  background: radial-gradient(ellipse 80% 60% at 50% -10%, oklch(0.80 0.10 264 / 0.35) 0%, transparent 70%);
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, oklch(0.80 0.10 271 / 0.35) 0%, transparent 70%);
 }
 .dark .hero-gradient {
-  background: radial-gradient(ellipse 80% 60% at 50% -10%, oklch(0.623 0.214 264 / 0.20) 0%, transparent 70%);
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, oklch(0.60 0.245 271 / 0.20) 0%, transparent 70%);
 }
 
 /* CTA section gradient */
 .cta-gradient {
-  background: oklch(0.96 0.005 264);
+  background: oklch(0.96 0.005 271);
 }
 .dark .cta-gradient {
-  background: oklch(0.16 0.01 264);
+  background: oklch(0.16 0.01 271);
 }

@@ -49,15 +49,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.2,
     },
-    // /download is deliberately behind a sign-in wall (robots meta on the
-    // page itself has index:false). Included here with low priority so it
-    // remains discoverable from direct links without inviting search
-    // engines to surface it for free-download queries.
-    {
-      url: `${BASE_URL}/download`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.4,
-    },
   ];
 }
