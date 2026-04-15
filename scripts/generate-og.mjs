@@ -63,12 +63,9 @@ function makeSvg({ title, subtitle }) {
   ${logoMarkAt(551, 68, 98)}
 
   <!-- Brand name -->
-  <text x="662" y="119" font-family="system-ui,-apple-system,sans-serif"
-        font-size="30" font-weight="700" fill="#f8fafc" dominant-baseline="middle"
+  <text x="662" y="128" font-family="system-ui,-apple-system,sans-serif"
+        font-size="32" font-weight="700" fill="#f8fafc" dominant-baseline="middle"
         letter-spacing="-0.5">CHIARM</text>
-  <text x="662" y="141" font-family="system-ui,-apple-system,sans-serif"
-        font-size="13" font-weight="500" fill="#6372FA" dominant-baseline="middle"
-        letter-spacing="3">APP</text>
 
   <!-- Title (may be long — split on ·) -->
   <text x="600" y="232" font-family="system-ui,-apple-system,sans-serif"

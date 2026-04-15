@@ -41,35 +41,26 @@ export function LogoMark({
 
 type LogoSize = "xs" | "sm" | "md" | "lg";
 
-const sizeMap: Record<LogoSize, { mark: number; text: string; sub: string }> = {
-  xs: { mark: 22, text: "text-xs font-bold",  sub: "text-[8px]"  },
-  sm: { mark: 28, text: "text-sm font-bold",  sub: "text-[9px]"  },
-  md: { mark: 36, text: "text-base font-bold", sub: "text-[10px]" },
-  lg: { mark: 48, text: "text-xl font-bold",  sub: "text-xs"     },
+const sizeMap: Record<LogoSize, { mark: number; text: string }> = {
+  xs: { mark: 22, text: "text-xs font-bold"   },
+  sm: { mark: 28, text: "text-sm font-bold"   },
+  md: { mark: 36, text: "text-base font-bold" },
+  lg: { mark: 48, text: "text-xl font-bold"   },
 };
 
 export function Logo({
   size = "sm",
   className,
-  hideSubtitle = false,
 }: {
   size?: LogoSize;
   className?: string;
-  hideSubtitle?: boolean;
 }) {
   const s = sizeMap[size];
   return (
     <span className={cn("inline-flex items-center gap-2", className)}>
       <LogoMark size={s.mark} />
-      <span className="flex flex-col leading-none">
-        <span className={cn(s.text, "tracking-tight")} style={{ letterSpacing: "-0.01em" }}>
-          CHIARM
-        </span>
-        {!hideSubtitle && (
-          <span className={cn(s.sub, "text-muted-foreground font-medium tracking-widest uppercase mt-0.5")}>
-            APP
-          </span>
-        )}
+      <span className={cn(s.text, "tracking-tight")} style={{ letterSpacing: "-0.01em" }}>
+        CHIARM
       </span>
     </span>
   );

@@ -17,7 +17,7 @@ const planHrefs = [
   "mailto:sales@chiarm.app",
 ] as const;
 
-const planPrices = ["279", "279", null] as const;
+const planPrices = ["99", "279", null] as const;
 
 const planHighlights = [false, true, false] as const;
 
@@ -55,17 +55,20 @@ export default function PricingPage() {
               const href = planHrefs[idx];
               const price = planPrices[idx];
               const highlight = planHighlights[idx];
+              const soldOut = (plan as { soldOut?: boolean }).soldOut === true;
               return (
                 <div
                   key={plan.name}
                   className={`relative rounded-2xl border p-6 flex flex-col ${
-                    highlight
+                    soldOut
+                      ? "border-border bg-card opacity-70"
+                      : highlight
                       ? "border-primary bg-primary/5 shadow-lg shadow-primary/10"
                       : "border-border bg-card"
                   }`}
                 >
                   {plan.badge && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-0.5 text-[11px] font-semibold text-white whitespace-nowrap">
+                    <span className={`absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-0.5 text-[11px] font-semibold text-white whitespace-nowrap ${soldOut ? "bg-muted-foreground" : "bg-primary"}`}>
                       {plan.badge}
                     </span>
                   )}
@@ -76,13 +79,21 @@ export default function PricingPage() {
                   <div className="mb-6">
                     {price ? (
                       <>
-                        <span className="text-4xl font-bold">{price}€</span>
+                        <span className={`text-4xl font-bold ${soldOut ? "line-through text-muted-foreground" : ""}`}>{price}€</span>
                         <span className="text-muted-foreground text-sm">{t.pricing.vatNote}</span>
                       </>
                     ) : (
                       <span className="text-2xl font-bold text-muted-foreground">{t.pricing.customPrice}</span>
                     )}
                   </div>
+                  {soldOut ? (
+                    <button
+                      disabled
+                      className="rounded-full mb-6 w-full py-2 px-4 text-sm font-medium border border-border text-muted-foreground cursor-not-allowed bg-muted/40"
+                    >
+                      {plan.cta}
+                    </button>
+                  ) : (
                   <ButtonLink
                     href={href}
                     variant={highlight ? "default" : "outline"}
@@ -92,6 +103,7 @@ export default function PricingPage() {
                     {plan.cta}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </ButtonLink>
+                  )}
                   <ul className="space-y-2.5 text-sm flex-1">
                     {plan.features.map((f) => (
                       <li key={f} className="flex items-start gap-2">
