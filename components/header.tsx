@@ -55,7 +55,7 @@ export function Header() {
         {/* Desktop actions */}
         <div className="hidden md:flex items-center gap-2">
           <ThemeToggle />
-          <ButtonLink href="mailto:support@chiarm.app" variant="ghost" size="sm">
+          <ButtonLink href="/contact" variant="ghost" size="sm">
             Contact
           </ButtonLink>
           <ButtonLink href="/download" size="sm" className="rounded-full px-4">
@@ -98,7 +98,7 @@ export function Header() {
               </Link>
             ))}
             <Link
-              href="mailto:support@chiarm.app"
+              href="/contact"
               className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted transition-colors"
               onClick={() => setMobileOpen(false)}
             >
