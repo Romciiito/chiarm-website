@@ -54,7 +54,8 @@ export function Header() {
           <LanguageToggle />
           <ThemeToggle />
           <ButtonLink href="/contact" variant="ghost" size="sm">
-            {t.nav.contact}
+KEEP_I18N
+REPLACED
           </ButtonLink>
           <ButtonLink href="/pricing" size="sm" className="rounded-full px-4">
             {t.nav.getStarted}
